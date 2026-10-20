@@ -1,0 +1,1620 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eef5ee;
+    color: #263d2b;
+}
+
+.header {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    color: white;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header p {
+    margin: 6px 0 0;
+    color: #d8eadc;
+}
+
+.navigation {
+    background-color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 3px 12px rgba(27, 67, 50, 0.10);
+    overflow-x: auto;
+}
+
+.navigation a {
+    position: relative;
+    text-decoration: none;
+    color: #31543d;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: transform .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.navigation a:hover {
+    background-color: #40916c;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(64, 145, 108, .35);
+}
+
+.navigation a:active {
+    transform: translateY(0);
+}
+
+.navigation .active {
+    background-color: #2d6a4f;
+    color: white;
+    box-shadow: 0 3px 8px rgba(45, 106, 79, .25);
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width .25s ease;
+    transform: translateX(-50%);
+}
+
+.navigation a:hover::after {
+    width: 60%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+.welcome {
+    background-color: white;
+    padding: 30px;
+    border-radius: 14px;
+    border-left: 6px solid #40916c;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, .08);
+    animation: fadeIn .6s ease;
+}
+
+.welcome h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #1b4332;
+}
+
+.welcome p {
+    color: #617267;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.welkom-gebruiker {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.dashboard-container {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.dashboard-container .welcome {
+    flex: 1;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.chat-container {
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chat-container h2 {
+    margin-top: 0;
+}
+
+.chat-berichten {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.chat-bericht {
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.chat-naam {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.chat-rol {
+    font-size: 13px;
+    color: #198754;
+    margin-top: 2px;
+}
+
+.chat-tekst {
+    margin-top: 8px;
+    word-wrap: break-word;
+}
+
+.chat-datum {
+    font-size: 12px;
+    color: #777;
+    margin-top: 8px;
+}
+
+.chat-formulier {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-formulier input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.chat-formulier button {
+    padding: 12px 20px;
+    background-color: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.chat-formulier button:hover {
+    background-color: #157347;
+}
+
+.chat-fout {
+    color: #dc3545;
+    margin-top: 10px;
+}
+
+.uitloggen {
+    background-color: #dc3545;
+    color: white !important;
+}
+
+.uitloggen:hover {
+    background-color: #bb2d3b !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-container .welcome,
+    .chat-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .welkom-gebruiker {
+        margin-right: 0;
+    }
+
+    .navigation {
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .navigation {
+        padding: 10px;
+        justify-content: flex-start;
+    }
+
+    .navigation a {
+        padding: 10px 12px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+}
+
+.reserveringen-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+.reserveringen-container h2 {
+    margin-bottom: 10px;
+}
+
+.reserveringen-container p {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.reserveringen-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+}
+
+.reserveringen-table th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.reserveringen-table td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.reserveringen-table tr:last-child td {
+    border-bottom: none;
+}
+
+.reserveringen-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.klant-naam {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.tarieven {
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.geen-tarieven {
+    color: #888;
+    font-style: italic;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status-gereserveerd {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-afgerond {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.status-geannuleerd {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.geen-reserveringen {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+}
+
+.reserveringen-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.reserveringen-terug-knop:hover {
+    background-color: #256628;
+    transform: translateY(-2px);
+}
+
+.medewerker-reservering-container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.medewerker-form-card {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-form-card h2 {
+    color: #2e7d32;
+    margin-top: 0;
+}
+
+.medewerker-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.medewerker-form-group {
+    margin-bottom: 18px;
+}
+
+.medewerker-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.medewerker-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.medewerker-form-group input,
+.medewerker-form-group select {
+    width: 100%;
+    padding: 11px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.medewerker-form-group input:focus,
+.medewerker-form-group select:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+.medewerker-keuze {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.medewerker-keuze button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.medewerker-keuze button.active {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.medewerker-klant-sectie {
+    display: none;
+}
+
+.medewerker-klant-sectie.active {
+    display: block;
+}
+
+.medewerker-plek-filter {
+    margin-bottom: 15px;
+}
+
+.medewerker-plek-overzicht {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.medewerker-plek {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.medewerker-plek:hover {
+    border-color: #2e7d32;
+}
+
+.medewerker-plek input {
+    margin-right: 8px;
+}
+
+.medewerker-plek.niet-beschikbaar {
+    background-color: #f5f5f5;
+    color: #888;
+}
+
+.medewerker-tarieven {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.medewerker-tarief {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.medewerker-tarief-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.medewerker-tarief input[type="number"] {
+    width: 70px;
+    padding: 8px;
+}
+
+.medewerker-prijs {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.medewerker-totaal-box {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.medewerker-totaal {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.medewerker-melding {
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.medewerker-fout {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.medewerker-gelukt {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.medewerker-knoppen {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.medewerker-reserveer-knop {
+    padding: 13px 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e7d32;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.medewerker-reserveer-knop:hover {
+    background-color: #256628;
+}
+
+.medewerker-print-knop {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+}
+
+.medewerker-terug-knop {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    color: #333;
+    text-decoration: none;
+}
+
+.medewerker-beschikbaar {
+    color: #2e7d32;
+}
+
+.medewerker-niet-beschikbaar {
+    color: #c62828;
+}
+
+@media (max-width: 700px) {
+
+    .medewerker-form-grid,
+    .medewerker-tarieven {
+        grid-template-columns: 1fr;
+    }
+}
+
+.medewerker-beheer-container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.medewerker-reservering-melding {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.medewerker-reservering {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.medewerker-reservering h2 {
+    margin-top: 0;
+}
+
+.medewerker-reservering-formulier {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.medewerker-reservering-formulier label {
+    font-weight: bold;
+}
+
+.medewerker-reservering-formulier input,
+.medewerker-reservering-formulier select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.medewerker-reservering-knoppen {
+    margin-top: 20px;
+}
+
+.medewerker-reservering-knop {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.medewerker-reservering-opslaan {
+    background-color: #198754;
+    color: white;
+}
+
+.medewerker-reservering-verwijderen {
+    background-color: #dc3545;
+    color: white;
+}
+
+.medewerker-reservering-terug {
+    background-color: #6c757d;
+    color: white;
+}
+
+@media (max-width: 700px) {
+
+    .medewerker-reservering-formulier {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.medewerker-klanten-overzicht {
+    margin: 30px auto;
+    max-width: 1200px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.medewerker-klanten-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.medewerker-klanten-tabel th,
+.medewerker-klanten-tabel td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-klanten-tabel th {
+    background: #2e7d32;
+    color: white;
+}
+
+.medewerker-klanten-terug-knop {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.medewerker-klanten-terug-knop:hover {
+    background: #555;
+}
+
+.medewerker-nieuwe-klant-formulier {
+    margin: 30px auto;
+    max-width: 700px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.medewerker-klant-formulier-groep {
+    margin-bottom: 15px;
+}
+
+.medewerker-klant-formulier-groep label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.medewerker-klant-formulier-groep input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.medewerker-klant-opslaan-knop {
+    padding: 10px 18px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.medewerker-klant-opslaan-knop:hover {
+    background: #1b5e20;
+}
+
+.medewerker-klant-terug-knop {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.medewerker-klant-terug-knop:hover {
+    background: #555;
+}
+
+.medewerker-klant-melding {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 6px;
+}
+
+.medewerker-klanten-beheer-overzicht {
+    margin: 30px auto;
+    max-width: 1400px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.medewerker-klanten-beheer-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.medewerker-klanten-beheer-tabel th,
+.medewerker-klanten-beheer-tabel td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-klanten-beheer-tabel th {
+    background: #2e7d32;
+    color: white;
+}
+
+.medewerker-klanten-beheer-tabel input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.medewerker-klanten-opslaan-knop {
+    padding: 8px 14px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.medewerker-klanten-opslaan-knop:hover {
+    background: #1b5e20;
+}
+
+.medewerker-klanten-verwijder-knop {
+    padding: 8px 14px;
+    background: #c62828;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.medewerker-klanten-verwijder-knop:hover {
+    background: #8e0000;
+}
+
+.medewerker-klanten-beheer-terug-knop {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.medewerker-klanten-beheer-terug-knop:hover {
+    background: #555;
+}
+
+.medewerker-klanten-beheer-melding {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 6px;
+}
+
+.medewerker-facturen-container {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+}
+
+.medewerker-facturen-container h2 {
+    margin-bottom: 10px;
+}
+
+.medewerker-facturen-container > p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.medewerker-facturen-tabel-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-facturen-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.medewerker-facturen-table th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.medewerker-facturen-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-facturen-table tr:last-child td {
+    border-bottom: none;
+}
+
+.medewerker-facturen-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.medewerker-factuur-nummer {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.medewerker-factuur-bedrag {
+    font-weight: bold;
+}
+
+.medewerker-betaalstatus {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.medewerker-betaald {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.medewerker-openstaand {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.medewerker-geannuleerd {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.medewerker-geen-facturen {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+}
+
+.medewerker-facturen-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.medewerker-facturen-terug-knop:hover {
+    background-color: #256628;
+    transform: translateY(-2px);
+}
+
+.medewerker-openstaande-facturen-container {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+}
+
+.medewerker-openstaande-facturen-container h2 {
+    margin-bottom: 10px;
+}
+
+.medewerker-openstaande-facturen-container > p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.medewerker-openstaande-facturen-tabel-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-openstaande-facturen-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.medewerker-openstaande-facturen-table th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.medewerker-openstaande-facturen-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-openstaande-facturen-table tr:last-child td {
+    border-bottom: none;
+}
+
+.medewerker-openstaande-facturen-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.medewerker-openstaande-factuur-nummer {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.medewerker-openstaande-factuur-bedrag {
+    font-weight: bold;
+}
+
+.medewerker-openstaande-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #fff3cd;
+    color: #856404;
+    font-weight: bold;
+}
+
+.medewerker-openstaande-geen-facturen {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+}
+
+.medewerker-openstaande-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.medewerker-openstaande-terug-knop:hover {
+    background-color: #256628;
+    transform: translateY(-2px);
+}
+
+.medewerker-factuur-beheer-container {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+}
+
+.medewerker-factuur-beheer-container h2 {
+    margin-bottom: 10px;
+}
+
+.medewerker-factuur-beheer-container > p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.medewerker-factuur-melding {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.medewerker-factuur-fout {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.medewerker-factuur-gelukt {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.medewerker-facturen-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.medewerker-factuur-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-factuur-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #2e7d32;
+}
+
+.medewerker-factuur-form-group {
+    margin-bottom: 15px;
+}
+
+.medewerker-factuur-form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.medewerker-factuur-form-group input,
+.medewerker-factuur-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.medewerker-factuur-form-group input:focus,
+.medewerker-factuur-form-group select:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+.medewerker-factuur-opslaan-knop {
+    padding: 10px 16px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.medewerker-factuur-opslaan-knop:hover {
+    background-color: #256628;
+}
+
+.medewerker-factuur-verwijder-knop {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 10px 16px;
+    background-color: #c62828;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.medewerker-factuur-verwijder-knop:hover {
+    background-color: #a51f1f;
+}
+
+.medewerker-factuur-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #eeeeee;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.medewerker-factuur-terug-knop:hover {
+    background-color: #dddddd;
+}
+
+.medewerker-geen-facturen {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: #777;
+}
+
+.medewerker-tarieven-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-tarieven-tabel th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.medewerker-tarieven-tabel td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-tarieven-tabel tr:last-child td {
+    border-bottom: none;
+}
+
+.medewerker-tarieven-tabel tr:hover {
+    background-color: #f4f8f4;
+}
+
+.medewerker-tarief-prijs {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.medewerker-tarieven-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.medewerker-tarieven-terug-knop:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+
+    .medewerker-tarieven-tabel {
+        font-size: 14px;
+    }
+
+    .medewerker-tarieven-tabel th,
+    .medewerker-tarieven-tabel td {
+        padding: 10px;
+    }
+
+}
+
+.medewerker-nieuw-tarief-formulier {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-nieuw-tarief-groep {
+    margin-bottom: 20px;
+}
+
+.medewerker-nieuw-tarief-groep label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.medewerker-nieuw-tarief-groep input,
+.medewerker-nieuw-tarief-groep textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.medewerker-nieuw-tarief-groep textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.medewerker-nieuw-tarief-groep input:focus,
+.medewerker-nieuw-tarief-groep textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+.medewerker-nieuw-tarief-knoppen {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.medewerker-nieuw-tarief-opslaan-knop,
+.medewerker-nieuw-tarief-terug-knop {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.medewerker-nieuw-tarief-opslaan-knop {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.medewerker-nieuw-tarief-opslaan-knop:hover {
+    background-color: #1b5e20;
+}
+
+.medewerker-nieuw-tarief-terug-knop {
+    background-color: #777;
+    color: white;
+}
+
+.medewerker-nieuw-tarief-terug-knop:hover {
+    background-color: #555;
+}
+
+.medewerker-nieuw-tarief-melding {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.medewerker-tarief-beheer-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-tarief-beheer-tabel th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.medewerker-tarief-beheer-tabel td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-tarief-beheer-tabel tr:last-child td {
+    border-bottom: none;
+}
+
+.medewerker-tarief-beheer-tabel tr:hover {
+    background-color: #f4f8f4;
+}
+
+.medewerker-tarief-beheer-tabel input {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.medewerker-tarief-beheer-tabel textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.medewerker-tarief-opslaan-knop {
+    padding: 9px 14px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.medewerker-tarief-opslaan-knop:hover {
+    background-color: #1b5e20;
+}
+
+.medewerker-tarief-verwijder-knop {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 9px 14px;
+    background-color: #c62828;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.medewerker-tarief-verwijder-knop:hover {
+    background-color: #8e0000;
+}
+
+.medewerker-tarief-melding {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.medewerker-tarief-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.medewerker-tarief-terug-knop:hover {
+    background-color: #555;
+}
+
+@media (max-width: 800px) {
+
+    .medewerker-tarief-beheer-tabel {
+        font-size: 14px;
+    }
+
+    .medewerker-tarief-beheer-tabel th,
+    .medewerker-tarief-beheer-tabel td {
+        padding: 8px;
+    }
+
+}
+
+.medewerker-tarief-beheer-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medewerker-tarief-beheer-tabel th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.medewerker-tarief-beheer-tabel td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medewerker-tarief-beheer-tabel tr:last-child td {
+    border-bottom: none;
+}
+
+.medewerker-tarief-beheer-tabel tr:hover {
+    background-color: #f4f8f4;
+}
+
+.medewerker-tarief-beheer-tabel input {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.medewerker-tarief-beheer-tabel textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.medewerker-tarief-opslaan-knop {
+    padding: 9px 14px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.medewerker-tarief-opslaan-knop:hover {
+    background-color: #1b5e20;
+}
+
+.medewerker-tarief-verwijder-knop {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 9px 14px;
+    background-color: #c62828;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.medewerker-tarief-verwijder-knop:hover {
+    background-color: #8e0000;
+}
+
+.medewerker-tarief-melding {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.medewerker-tarief-terug-knop {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.medewerker-tarief-terug-knop:hover {
+    background-color: #555;
+}
+
+@media (max-width: 800px) {
+
+    .medewerker-tarief-beheer-tabel {
+        font-size: 14px;
+    }
+
+    .medewerker-tarief-beheer-tabel th,
+    .medewerker-tarief-beheer-tabel td {
+        padding: 8px;
+    }
+
+}
+
+.statistieken {
+    width: 90%;
+    margin: 30px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.statistiek-kaart {
+    background-color: white;
+    padding: 25px;
+    border-radius: 14px;
+    border-top: 4px solid #74c69d;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, .08);
+}
+
+.statistiek-kaart h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2d6a4f;
+}
+
+.statistiek-waarde {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1b4332;
+}
+
+.statistiek-omschrijving {
+    margin-top: 8px;
+    color: #718078;
+}
+
+@media (max-width: 800px) {
+
+    .statistieken {
+        grid-template-columns: 1fr;
+    }
+
+}
