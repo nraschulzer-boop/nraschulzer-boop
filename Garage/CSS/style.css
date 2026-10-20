@@ -1,0 +1,32 @@
+body {
+    background-color: #d3d3d3;
+}
+
+.navbar {
+    background-color: #6c757d !important; 
+}
+
+.navbar .navbar-brand {
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #495057; 
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.navbar .navbar-brand:hover {
+    background-color: #6c757d; 
+    color: white !important;
+    text-decoration: none;
+}
+
+.error-message {
+    background-color: #6c757d !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    margin-top: 0 !important; 
+}
+
